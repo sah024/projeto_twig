@@ -1,0 +1,24 @@
+{# templates/_base.html #}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Twig</title>
+</head>
+<body>
+    <h1>Super site Twig Master</h1>
+    {% if titulo %}
+    <h2>{{ titulo }}</h2>
+    {% endif %}
+
+    <hr>
+    <a href="index.php">Inicial</a> |
+    <a href="compras.php">Compras</a>
+    <hr>
+
+    {% block conteudo %}{% endblock %}
+
+</body>
+</html>
