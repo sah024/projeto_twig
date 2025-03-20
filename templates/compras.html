@@ -4,9 +4,20 @@
 {% block conteudo %}
 Página Compras
 
+<h3>Adicionar Item</h3>
+<form action="compras_adc.php" method="post">
+    <input type="text" name="item" placeholder="Digite seu item">
+    <input type="submit" value="Adicionar">
+</form>
+
+<h3>Minha Lista de Compras</h3>
 <ul>
     {% for compra in compras %}
-        <li>{{ compra.item }}</li>
+        <li>
+            {{ compra.item }} 
+            <a href="compras_dlt.php?id={{ compra.id }}"><i class="fa-solid fa-trash" alt="Deletar"></i></a> 
+            <a href="compras_form.php?id={{ compra.id }}"><i class="fa-solid fa-pen" alt="Editar"></i></a>
+        </li>
     {% endfor %}
 </ul>
 

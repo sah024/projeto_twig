@@ -1,0 +1,14 @@
+{# templates/compras.html #}
+{% extends "_base.html" %}
+
+{% block conteudo %}
+<h2>Página alterar item</h2>
+
+<h3>editar item</h3>
+<form action="compras_edit.php" method="post">
+    <input type="hidden" name="id" value="{{id}}">
+    <input type="text" name="item" placeholder="Digite seu item" value="">
+    <input type="submit" value="Adicionar">
+</form>
+
+{% endblock %}
