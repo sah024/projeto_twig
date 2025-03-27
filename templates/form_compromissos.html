@@ -1,0 +1,15 @@
+{# templates/compras.html #}
+{% extends "_base.html" %}
+
+{% block conteudo %}
+<h2>Página alterar compromisso</h2>
+
+<h3>editar compromisso {{compromissos.compromisso}} {{compromissos.data}}</h3>
+<form action="compromissos_edit.php" method="post">
+    <input type="hidden" name="id" value="{{id}}">
+    <input type="text" name="compromisso" placeholder="Digite seu compromisso">
+    <input type="date" name="data">
+    <input type="submit" value="Adicionar">
+</form>
+
+{% endblock %}

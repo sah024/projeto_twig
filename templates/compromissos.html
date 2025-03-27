@@ -1,0 +1,28 @@
+{# templates/compromissos.html #}
+{% extends "_base.html" %}
+
+{% block conteudo %}
+
+<h3>Adicionar Compromisso</h3>
+<form action="compromissos_adc.php" method="post">
+    <input type="text" name="compromisso" placeholder="Digite seu compromisso">
+    <input type="date" name="data">
+    <input type="submit" value="Adicionar">
+</form>
+
+<h3>Seus Compromissos</h3>
+<a href="compromissos.php?ordem=1">Ordem crescente(data)</a> | 
+<a href="compromissos.php?ordem=2">Ordem decrescente(data)</a> |
+<a href="compromissos.php?ordem=3">Ordem crescente(data)</a> | 
+<a href="compromissos.php?ordem=4">Ordem decrescente(data)</a>
+<ul>
+    {%for compromisso in compromissos %}
+    <li>
+        {{ compromisso.compromisso }}  {{compromisso.data}}
+        <a href="compromissos_form.php?id={{ compromisso.id }}"><i class="fa-solid fa-pen" alt="Editar"></i></a>
+        <a href="compromissos_dlt.php?id={{ compromisso.id }}"><i class="fa-solid fa-trash" alt="Deletar"></i></a>
+    </li>
+    {%endfor%}
+</ul>
+
+{% endblock %}
