@@ -1,0 +1,40 @@
+PROVA TEORICA 1 -> 4 pontos
+
+Servidor web - serve arquivos na interneet, ele que encontraarquivos e mostra para o usuário (apache, lighttpd, nginx, tomcat)
+apache-> htdocs -> interpreta em php (pq tá instalado) e html (caso n tenha nenhum instalado), está instalodo junto com o servidor e busca dados no banco (mysql, oracle, mongo)
+apache-> servidorphp-.linguagem
+mysql->banco
+
+requisições -> get(url) e post(não aparece variavel)
+
+para passar por info de array -> foreach (pro php é estrutura de repetição, pro js é função do array)
+
+foreach($array as $chave => $item){
+    echo $chave.': '.$item;
+}
+
+//MVC ->padrão de projeto, arquitetura
+model -> dados, PDO -> acessa ao bd, biblioteca de abstração, aumenta segurança -> prepared statements guarda o valor do placeholder(:id, :nome), prepare (com bind) tem tratamento de dados -> quando tem dados externos (banco, persistencia, rn's), 
+view -> visualização (html->templates) 
+e controller -> gerencia os acessos, pessoa acessa o controller e dps ele joga pra ver os views, twig (php)
+
+//Composer -> gerenciador de dependencia do php, equivale ao npm do js. permitir instalação de pacotes de outros devs
+composer require <pacote> -> nova dependencia
+projetos já existentes -> composer install busca do servidos do packgiagist
+
+//Twig -> biblioteca de templates, separação de controller e views
+comandos:
+{%extends%} -> herança de outro arquivo
+{%block%} -> bloco de conteudo que substitui um bloco original dentroi de uma herança
+
+php-> render(nome do html, array com variaveis)-> busca o html, substitui as variaveis e mostra na tela, renderiza
+
+{{blablabla}}-> double moustache -> imprime valores
+
+//Git -> aplicativo de controle de versionamento, histórico das alterações de um projeto
+commit-> registra alterações feitas (cria uma versão nova)
+push -> manda os dados locais para o remoto
+pull -> busca dados no remoto
+fetch (geralmente vem em conjunto com o pull) -> busca atualizações, diz se tem algo pra fazer pull
+
+//Github -> serviço de hospedagem de git, de armazenamento de git, só armazena o versionamento, não é o versionamento
