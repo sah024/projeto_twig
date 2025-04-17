@@ -7,3 +7,5 @@ $loader  = new \Twig\Loader\FilesystemLoader('./templates');
 
 //Criar o objeto do Twig
 $twig = new \Twig\Environment($loader);
+
+session_start();

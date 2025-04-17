@@ -9,12 +9,9 @@ if ($compromisso){
 
     $query = $pdo->prepare('INSERT INTO compromissos (compromisso, data) VALUES (:compromisso, :data)');
 
-
     $query->bindValue(':compromisso', $compromisso);
     $query->bindValue(':data', $data);
     
-
-
     $query->execute();
 }
 

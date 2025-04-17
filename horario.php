@@ -9,8 +9,12 @@ require('twig_carregar.php');
 
 use Carbon\Carbon;
 
-echo $twig->render('horario.html', [
-    'titulo' => 'Horário',
-    'dataAtual' => Carbon::now(),
-    'dataAmanha' => Carbon::now()->addDay(),
-]);
+if(isset($_SESSION["usuario"])){
+    echo $twig->render('horario.html', [
+        'titulo' => 'Horário',
+        'dataAtual' => Carbon::now(),
+        'dataAmanha' => Carbon::now()->addDay(),
+    ]);
+} else {
+    header("location:login.php");
+}

@@ -3,7 +3,11 @@
 require_once('twig_carregar.php');
 require('inc/banco.php');
 
-$id = $_GET['id'];
-echo $twig->render('form_compras.html', [
-    'id' => $id,
-]);
+if(isset($_SESSION["usuario"])){
+    $id = $_GET['id'];
+    echo $twig->render('form_compras.html', [
+        'id' => $id,
+    ]);
+} else {
+    header("location:login.php");
+}

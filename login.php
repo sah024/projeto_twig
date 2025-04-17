@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 require_once('twig_carregar.php');
 require('inc/banco.php');
@@ -8,13 +8,17 @@ $user = $_POST["user"] ?? null;
 $senha = $_POST["senha"] ?? null;
 
 if ($user && $senha){
-    $password = password_hash($senha, PASSWORD_DEFAULT);
-
-    $dados = $pdo->prepare('SELECT * FROM usuarios where user = :user and senha = :senha');
+    $dados = $pdo->prepare('SELECT * FROM usuarios where user = :user');
     $binds = [
         ":user" => $user,
-        ":senha" => $password,
     ];
-    $dados->execute();
-    $comp = $dados->fetchAll(PDO::FETCH_ASSOC);
+    $dados->execute($binds);
+    $bdR = $dados->fetch();
+
+    if($bdR && password_verify($senha, $bdR["senha"])){
+        $_SESSION["usuario"] = $bdR["user"];
+        header("location:index.php");
+    }
 }
+
+echo $twig->render("login.html",[]);
